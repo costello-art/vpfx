@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd" >
+<log4j:configuration debug="false">
+
+    <appender name="default.file" class="org.apache.log4j.FileAppender">
+        <param name="file" value="debug.txt"/>
+        <param name="append" value="true"/>
+
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{ISO8601} %-5p [%c{1}] %C %M - %m%n"/>
+        </layout>
+    </appender>
+
+    <appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+            <param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss} %5p %c{1} - %m%n"/>
+        </layout>
+    </appender>
+
+    <root>
+        <priority value="trace"/>
+        <appender-ref ref="default.file"/>
+        <appender-ref ref="consoleAppender"/>
+    </root>
+</log4j:configuration>
